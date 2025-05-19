@@ -387,5 +387,86 @@ class Player{
           }
         }
         BAD/IT/2324/F/093(finished)
+        //BAD/IT/2324/F/029(statrting)
+        // Create players
+        this.players=[];
+        for(let i=0;i<this.playerCount;i++){
+          const xPos=200+(i*400/this.playerCount);
+          const player=new Player(i, xPos,300,this.playerColors[i];
+          this.players.push(player);
+        }
+        //Setup DOM
+        this.settingPanel.style.display='none';
+        this.gameContainer.style.display='block';
+        this.gameControl.style.display='block';
+        this.instructions.style.display='block;
+          //Create health bars
+        this.createHealthBars();
+        //Create player elements
+        this.createPlayerElements();
+        //Add event listeners
+        window.addEventListener('keydown',this.handleKeyDown);
+        window.addeventListener('keyup',this.handleKeyup);
+        //Set game state
+        this.gameStarted=true;
+        //Start game state
+        this.gameStarted=true;
+        //start game loop
+        this.animationFrame=requestAnimationFrame(this.gameLoop);
+      }
+      resetGame(){
+        //Clear animation frame
+        if(this.animationFrame){
+          cancelAnimationFrame(this.animationframe);
+        }
+        //Remove event listeners
+        window.removeEventListener('keydown',this.handleKeyDown);
+        window.removeEventListener('keyup',this.handleKeyup);
+        //Reset DOM
+        this.healthBarsContainer.innerHTML=";
+          this.playersContainer.innerHTML=;
+        this.gameContainer.style.disply='none';
+        this.gameControls.style.display='none';
+        this.instruction.style.display='none';
+        this.settingPanel.style.disply='block';
+        //Reset game state
+        this.gameStarted=false;
+        this.players=[];
+      }
+      createHealthBars(){
+        this.healthBarsContainer.innerHTML=";
+          for(let i=0;i<this.players.length;i++){
+          const healthBar=document.createElement('div);
+           healthBar.className='health-'bar';
+            healthBar.style.top=${20+(i*30)}px;
+          const healthFill=document.createElements('div');
+          healthFill.className='health-fill';
+          healthFill.style.width=100%;
+          healthFill.style.backgroundcolor=this.player[i].color;
+          healthBar.appendChild(healthFill);
+          const healthText=document.createElements('div');
+          healthText.className='health-text;
+            healthText.textContent=Player${i+1}:100%;
+          healthBar.appendChild(healthText);
+          this.healthBarContainer.appendChild(healthBar);
+        }
+      }
+      cratePlayerElements(){
+        this.playersContainer.innerHTML=";
+          for(let i=0;i<this.players.length;i++){
+          const playerElement=document.createElements('div');
+          playerElement.className='player';
+            playerElement.id=player-${i};
+          this.playersContainers.appendChild(playerElements);
+        }
+      }
+      //BAD/IT/2324/F/029(Finished)
+          
+          
+                                                 
+        
+          
+          
+        
         
        
